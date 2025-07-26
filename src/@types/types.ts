@@ -6,3 +6,13 @@ export interface IRoutes {
     path: string;
     id: number
 }
+
+export interface IModalProps {
+    children: React.ReactNode;
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export interface IProducts {
+    category: string;
+    description: string;
+}
