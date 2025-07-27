@@ -1,3 +1,9 @@
 {
-  "categories": []
+  "categories": [
+    {
+      "category": "Potato",
+      "description": "Potato's price 0.25$",
+      "id": "14ea"
+    }
+  ]
 }

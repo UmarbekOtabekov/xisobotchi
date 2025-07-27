@@ -15,4 +15,11 @@ export interface IModalProps {
 export interface IProducts {
     category: string;
     description: string;
+    id: string;
+}
+
+export interface ICardProps {
+    product: IProducts;
+    setProducts: React.Dispatch<React.SetStateAction<IProducts[]>>;
+    products: IProducts[];
 }
