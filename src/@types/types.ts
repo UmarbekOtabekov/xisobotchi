@@ -9,7 +9,7 @@ export interface IRoutes {
 
 export interface IModalProps {
     children: React.ReactNode;
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+    setIsOpen?: React.Dispatch<React.SetStateAction<boolean>> | undefined
 }
 
 export interface IProducts {
@@ -22,4 +22,9 @@ export interface ICardProps {
     product: IProducts;
     setProducts: React.Dispatch<React.SetStateAction<IProducts[]>>;
     products: IProducts[];
+}
+
+export interface IHeaderProps {
+    userName: string | boolean;
+    setUserName: React.Dispatch<React.SetStateAction<string | boolean>>;
 }

@@ -9,8 +9,8 @@ const Login = lazy(() => import("./Pages/Login"))
 function App() {
   const { loggedIn } = useSelector((state: RootState) => state.auth)
   useEffect(() => {
-     localStorage.setItem("token", JSON.stringify(loggedIn))
-   }, [loggedIn])
+    localStorage.setItem("token", JSON.stringify(loggedIn))
+  }, [loggedIn])
   return (
     <>
       <Routes>
