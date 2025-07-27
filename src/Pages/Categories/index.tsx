@@ -33,7 +33,7 @@ function Categories() {
     getData()
   }, [])
   return (
-    <div className="w-full h-screen text-black">
+    <div className="w-full text-black">
       <div className="flex items-end justify-end pt-50 pr-10">
         <button onClick={() => setIsAddOpen(true)} className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 cursor-pointer">
           <span>
