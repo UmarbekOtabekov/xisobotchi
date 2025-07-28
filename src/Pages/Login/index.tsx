@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { login } from "../../features/authSlice";
 import { useNavigate } from "react-router-dom";
+import { IoLogIn } from "react-icons/io5";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -23,6 +24,12 @@ export default function Login() {
   return (
     <div className="bg-slate-400 pt-5 h-screen">
       <form onSubmit={handleSubmit} className="flex bg-white rounded-xl w-fit mx-auto flex-col gap-4 items-center p-20">
+        <h1 className="text-2xl font-semibold flex items-center gap-2">
+          <span>
+            Login
+          </span>
+          <IoLogIn />
+        </h1>
         <input required className="border-2 px-4 py-2 rounded-md" name="tel" type="tel" placeholder="Tel" />
         <input required className="border-2 px-4 py-2 rounded-md" name="password" type="password" placeholder="Password" autoComplete="off" />
         <button className="bg-blue-600 px-4 py-2 w-full text-white rounded-md cursor-pointer">Login</button>
