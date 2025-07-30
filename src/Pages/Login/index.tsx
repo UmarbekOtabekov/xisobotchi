@@ -15,7 +15,7 @@ export default function Login() {
     const formData = new FormData(event.currentTarget);
     const { tel, password } = Object.fromEntries(formData.entries());
     if (tel === "330565212" && password === "qwerty" || tel === "507809843" && password === "123456" || tel === "1" && password === "hello") {
-      toast.success(t("You logged"));
+      toast.success(t("You are logged in"));
       dispatch(login());
       navigate("/")
     } else {

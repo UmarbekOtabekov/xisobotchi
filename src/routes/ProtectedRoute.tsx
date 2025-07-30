@@ -12,9 +12,9 @@ function ProtectedRoute() {
     if (loggedIn) {
         return (
             <div className="flex items-start text-white w-screen">
-                <Sidebar />
+                <Sidebar userName={userName} setUserName={setUserName} />
                 <div className="flex-1">
-                    <Header userName={userName} setUserName={setUserName} />
+                    <Header />
                     <Outlet />
                 </div>
             </div>

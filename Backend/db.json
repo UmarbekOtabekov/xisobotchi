@@ -5,5 +5,12 @@
       "category": "Elma",
       "description": "Elma"
     }
+  ],
+  "products": [
+    {
+      "title": "Olma",
+      "price": "1",
+      "id": "3e0d"
+    }
   ]
 }

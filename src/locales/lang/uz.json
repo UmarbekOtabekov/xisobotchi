@@ -12,8 +12,8 @@
     "Login": "Kirish",
     "Tel": "Telefon raqami",
     "Password": "Parol",
-    "You logged": "Siz tizimga kirdingiz",
-    "Logged out": "Tizimdan chiqdingiz",
+    "You are logged in": "Siz tizimga kirdingiz",
+    "You logged out": "Tizimdan chiqdingiz",
     "Name can't be empty": "Ism bo'sh bo'lmasligi kerak",
     "Enter your name": "Ismingizni kiriting",
     "Set your name": "Ismingizni belgilang",
@@ -27,5 +27,11 @@
     "Category updated successfully!": "Kategoriya muvaffaqiyatli yangilandi!",
     "Failed to update category. Please try again.": "Kategoriya yangilanishda xatolik ketdi. Iltimos, qayta urinib ko'ring.",
     "Category deleted successfully!": "Kategoriya muvaffaqiyatli o'chirildi!",
-    "Category added successfully!": "Kategoriya muvaffaqiyatli qo'shildi!"
+    "Category added successfully!": "Kategoriya muvaffaqiyatli qo'shildi!",
+    "Product's title": "Mahsulot nomi",
+    "Product's price": "Mahsulot narxi",
+    "Add product": "Mahsulot qoshish",
+    "Product updated": "Mahsulot yangilandi",
+    "Product deleted": "Mahsulot o'chirildi",
+    "Are you sure you want to delete this product?": "Ushbu mkahsulotni o'chirishni xohlaysizmi?"
 }

@@ -3,13 +3,13 @@ import { CiSquarePlus } from "react-icons/ci"
 import Modal from "../../components/ui/Modal"
 import axios from "axios"
 import { toast } from "react-toastify"
-import type { IProducts } from "../../@types/types"
+import type { ICategories } from "../../@types/types"
 import Card from "../../components/layouts/Card"
 import { useTranslation } from "react-i18next"
 
 function Categories() {
   const [isAddOpen, setIsAddOpen] = useState<boolean>(false);
-  const [products, setProducts] = useState<IProducts[]>([]);
+  const [categories, setCategories] = useState<ICategories[]>([]);
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -25,7 +25,7 @@ function Categories() {
   async function getData() {
     try {
       const res = await axios.get("http://localhost:5000/categories");
-      setProducts(res.data);
+      setCategories(res.data);
     } catch (err) {
       console.log(err)
     }
@@ -36,7 +36,7 @@ function Categories() {
   const { t } = useTranslation();
   return (
     <div className="w-full text-black">
-      <div className="flex items-end justify-end pt-50 pr-10">
+      <div className="flex items-end justify-end pt-50 pr-5">
         <button onClick={() => setIsAddOpen(true)} className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 cursor-pointer">
           <span>
             {t("Add category")}
@@ -76,8 +76,13 @@ function Categories() {
         </thead>
         <tbody>
           {
-            products.map((product) => (
-              <Card key={product.id} products={products} setProducts={setProducts} product={product} />
+            categories.map((category) => (
+              <Card
+                key={category.id}
+                categories={category}
+                setCategories={setCategories}
+                category={categories}
+              />
             ))
           }
         </tbody>

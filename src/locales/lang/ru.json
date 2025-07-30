@@ -10,7 +10,9 @@
     "Edit": "Редактировать",
     "Submit": "Отправить",
     "Login": "Вход",
+    "You logged out": "Вы вышли из системы",
     "Tel": "Номер телефона",
+    "You are logged in": "Вы вашли в систему",
     "Password": "Пароль",
     "Not specified": "Не указано",
     "Set your name": "Укажите ваше имя",
@@ -24,5 +26,11 @@
     "Category updated successfully!": "Категория успешно обновлена!",
     "Failed to update category. Please try again.": "Не удалось обновить категорию. Пожалуйста, попробуйте еще раз.",
     "Category deleted successfully!": "Категория успешно удалена!",
-    "Category added successfully!": "Категория успешно добавлена!"
+    "Category added successfully!": "Категория успешно добавлена!",
+    "Product's title": "Название товара",
+    "Product's price": "Цена товара",
+    "Add product": "Добавить товар",
+    "Are you sure you want to delete this product?": "Вы уверены, что хотите удалить этот продукт?",
+    "Product updated": "Товар обновлён",
+    "Product deleted": "Товар удалён"
 }
