@@ -1,16 +1,4 @@
 {
-  "categories": [
-    {
-      "id": "1d31",
-      "category": "Elma",
-      "description": "Elma"
-    }
-  ],
-  "products": [
-    {
-      "title": "Olma",
-      "price": "1",
-      "id": "3e0d"
-    }
-  ]
+  "categories": [],
+  "products": []
 }
