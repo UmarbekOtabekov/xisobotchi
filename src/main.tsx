@@ -4,8 +4,8 @@ import './index.css'
 import App from './App.tsx'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { store } from './features/store.ts'
-import Loader from './components/layouts/Loader.tsx'
+import { store } from './app/store.ts'
+import Loader from './components/loaders/Loader.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <Suspense fallback={<Loader />}>

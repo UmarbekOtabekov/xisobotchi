@@ -33,5 +33,17 @@
     "Add product": "Mahsulot qoshish",
     "Product updated": "Mahsulot yangilandi",
     "Product deleted": "Mahsulot o'chirildi",
-    "Are you sure you want to delete this product?": "Ushbu mkahsulotni o'chirishni xohlaysizmi?"
+    "Are you sure you want to delete this product?": "Ushbu mkahsulotni o'chirishni xohlaysizmi?",
+    "No categories found": "Kategoriya topilmadi.",
+    "My Project": "Mening Saytim",
+    "No products found": "Mahsulot topilmadi",
+    "Books": "Kitoblar",
+    "Add book": "Kitob qo'shish",
+    "Book's title en": "Kitob nomi en",
+    "Book's title uz": "Kitob nomi uz",
+    "Book's title": "Kitob nomi",
+    "Book's genre": "Kitob janri",
+    "Book's genre uz": "Kitob janri uz",
+    "Book's genre en": "Kitob janri en",
+    "No books found": "Kitoblar topilmadi"
 }

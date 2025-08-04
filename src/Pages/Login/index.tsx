@@ -1,7 +1,7 @@
 import type React from "react"
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { login } from "../../features/authSlice";
+import { login } from "../../services/authSlice";
 import { useNavigate } from "react-router-dom";
 import { IoLogIn } from "react-icons/io5";
 import { useTranslation } from "react-i18next";

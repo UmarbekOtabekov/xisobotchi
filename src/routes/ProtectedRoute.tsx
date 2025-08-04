@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import type { RootState } from "../features/store"
+import type { RootState } from "../app/store"
 import { Sidebar } from "../components/layouts/Sidebar"
 import { Header } from "../components/layouts/Header"
 import { Navigate, Outlet } from "react-router-dom"

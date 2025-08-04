@@ -9,7 +9,7 @@ export interface IRoutes {
 
 export interface IModalProps {
     children: React.ReactNode;
-    setIsOpen?: React.Dispatch<React.SetStateAction<boolean>> | undefined
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export interface ICategories {
@@ -18,10 +18,16 @@ export interface ICategories {
     id: string;
 }
 
-export interface ICardProps {
-    categories: ICategories;
-    setCategories: React.Dispatch<React.SetStateAction<ICategories[]>>;
-    category: ICategories[];
+export interface IBooks {
+    janr_uz: string;   
+    janr_en: string;
+    book_name_uz: string;
+    book_name_en: string;
+    id: string;
+}
+
+export interface IBCardProps {
+    book: IBooks;
 }
 
 export interface IHeaderProps {
@@ -39,4 +45,10 @@ export interface IMCardProps {
     products: IProducts[];
     setProducts: React.Dispatch<SetStateAction<IProducts[]>>;
     product: IProducts
+}
+
+export interface ILang {
+      code: string;
+      name: string;
+      flag: string
 }

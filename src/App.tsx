@@ -2,9 +2,9 @@ import { Route, Routes } from "react-router-dom"
 import { routes } from "./routes/routes"
 import { lazy, useEffect } from "react"
 import ProtectedRoute from "./routes/ProtectedRoute"
-import { ToastContainer } from "react-toastify"
+import { Bounce, ToastContainer } from "react-toastify"
 import { useSelector } from "react-redux"
-import type { RootState } from "./features/store"
+import type { RootState } from "./app/store"
 const Login = lazy(() => import("./Pages/Login"))
 function App() {
   const { loggedIn } = useSelector((state: RootState) => state.auth)
@@ -22,7 +22,19 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/*" element={<Login />} />
       </Routes>
-      <ToastContainer autoClose={1000} limit={3} />
+      <ToastContainer
+        position="top-right"
+        autoClose={500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </>
   )
 }

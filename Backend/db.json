@@ -1,4 +1,12 @@
 {
   "categories": [],
-  "products": []
+  "products": [],
+  "books": [
+    {
+      "id": "34c2",
+      "book_name_uz": "Potter",
+      "book_name_en": "Potter",
+      "description": "fantasc"
+    }
+  ]
 }

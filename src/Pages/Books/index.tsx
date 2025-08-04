@@ -1,63 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CiSquarePlus } from "react-icons/ci";
 import Modal from "../../components/ui/Modal";
-import axios from "axios";
 import { toast } from "react-toastify";
-import type { ICategories } from "../../@types/types";
-import Card from "../../components/layouts/Card";
+import type { IBooks } from "../../@types/types";
+import BCard from "../../components/layouts/BCard";
 import { useTranslation } from "react-i18next";
+import { useAddBookMutation, useBooksQuery } from "../../services/booksApi";
+import Loader from "../../components/loaders/Loader";
+import Error from "../../components/loaders/Error";
 
-function Categories() {
+function Books() {
   const [isAddOpen, setIsAddOpen] = useState<boolean>(false);
-  const [categories, setCategories] = useState<ICategories[]>([]);
   const { t } = useTranslation();
-
+  const [addBook] = useAddBookMutation()
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const data = Object.fromEntries(formData.entries());
+
     try {
-      await axios.post("http://localhost:5000/categories", data);
-      toast.success(t("Category added successfully!"));
+      await addBook(data)
+      toast.success(t("Book added successfully!"));
       setIsAddOpen(false);
-      getData();
+      event.currentTarget.reset();
     } catch (err) {
       console.log(err);
-      toast.error(t("Failed to add category. Please try again."));
+      toast.error(t("Failed to add book. Please try again."));
     }
   };
 
-  async function getData() {
-    try {
-      const res = await axios.get("http://localhost:5000/categories");
-      setCategories(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const { data: books = [], isLoading, isError } = useBooksQuery({});
 
   return (
     <div className="w-full text-black p-4 sm:p-6">
-      {/* Add category button */}
-      <div className="flex justify-end mb-6">
-        <button
-          onClick={() => setIsAddOpen(true)}
-          className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 cursor-pointer shadow-md"
-        >
-          <span>{t("Add category")}</span>
-          <CiSquarePlus size={22} />
-        </button>
-      </div>
-
       {/* Modal */}
       {isAddOpen && (
         <Modal setIsOpen={setIsAddOpen}>
           <h2 className="text-xl font-semibold mb-4 text-center">
-            {t("Add category")}
+            {t("Add book")}
           </h2>
           <form
             onSubmit={handleSubmit}
@@ -65,17 +45,28 @@ function Categories() {
           >
             <input
               type="text"
-              placeholder={t("Category's title")}
-              name="category"
+              placeholder={t("Book's title uz")}
+              name="book_name_uz"
               className="border-2 px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-600 outline-none"
               required
             />
-            <textarea
-              name="description"
-              placeholder={t("Category's description")}
+            <input
+              type="text"
+              placeholder={t("Book's title en")}
+              name="book_name_en"
               className="border-2 px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-600 outline-none"
               required
-            ></textarea>
+            />
+            <input
+              name="description"
+              placeholder={t("Book's genre uz")}
+              className="border-2 px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-600 outline-none"
+              required /> 
+            <input
+              name="description"
+              placeholder={t("Book's genre en")}
+              className="border-2 px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-600 outline-none"
+              required />
             <button
               type="submit"
               className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
@@ -86,16 +77,27 @@ function Categories() {
         </Modal>
       )}
 
-      {/* Responsive table */}
+      {/* Add book button */}
+      <div className="flex justify-end mb-6">
+        <button
+          onClick={() => setIsAddOpen(true)}
+          className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 cursor-pointer shadow-md"
+        >
+          <span>{t("Add book")}</span>
+          <CiSquarePlus size={22} />
+        </button>
+      </div>
+
+      {/* Table */}
       <div className="overflow-x-auto shadow-lg rounded-lg">
         <table className="w-full border-collapse text-sm md:text-base">
           <thead className="bg-blue-600 text-white">
             <tr>
               <th className="border px-4 py-2 text-left">
-                {t("Category's title")}
+                {t("Book's title")}
               </th>
               <th className="border px-4 py-2 text-left">
-                {t("Category's description")}
+                {t("Book's genre")}
               </th>
               <th className="border px-4 py-2 text-red-600 bg-white">
                 {t("Delete")}
@@ -106,14 +108,21 @@ function Categories() {
             </tr>
           </thead>
           <tbody className="bg-white">
-            {categories.length > 0 ? (
-              categories.map((category) => (
-                <Card
-                  key={category.id}
-                  categories={category}
-                  setCategories={setCategories}
-                  category={categories}
-                />
+            {isLoading ? (
+              <tr>
+                <td colSpan={4} className="py-6">
+                  <Loader />
+                </td>
+              </tr>
+            ) : isError ? (
+              <tr>
+                <td colSpan={4} className="py-6">
+                  <Error />
+                </td>
+              </tr>
+            ) : books.length > 0 ? (
+              books.map((book: IBooks) => (
+                <BCard key={book.id} book={book} />
               ))
             ) : (
               <tr>
@@ -121,7 +130,7 @@ function Categories() {
                   colSpan={4}
                   className="text-center text-gray-500 py-6 italic"
                 >
-                  {t("No categories found")}
+                  {t("No books found")}
                 </td>
               </tr>
             )}
@@ -132,4 +141,4 @@ function Categories() {
   );
 }
 
-export default Categories;
+export default Books;
