@@ -58,12 +58,12 @@ function Books() {
               required
             />
             <input
-              name="description"
+              name="genre_uz"
               placeholder={t("Book's genre uz")}
               className="border-2 px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-600 outline-none"
               required /> 
             <input
-              name="description"
+              name="genre_en"
               placeholder={t("Book's genre en")}
               className="border-2 px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-600 outline-none"
               required />

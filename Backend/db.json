@@ -3,10 +3,11 @@
   "products": [],
   "books": [
     {
-      "id": "34c2",
+      "id": "c093",
       "book_name_uz": "Potter",
-      "book_name_en": "Potter",
-      "description": "fantasc"
+      "book_name_en": "HarryPotter",
+      "genre_uz": "fantastika",
+      "genre_en": "fantastic"
     }
   ]
 }

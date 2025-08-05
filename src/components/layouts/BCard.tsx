@@ -51,7 +51,7 @@ function Card({ book }: IBCardProps) {
                 <td className="border-2 text-black px-4 py-2">
                     {
                         lang === "en" ?
-                            book.janr_en : book.janr_uz
+                            book.genre_en : book.genre_uz
                     }
                 </td>
                 <td onClick={() => deleteBook(book.id)} className="border-2 bg-red-600 cursor-pointer text-white border-black px-4 py-2">

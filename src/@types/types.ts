@@ -19,8 +19,8 @@ export interface ICategories {
 }
 
 export interface IBooks {
-    janr_uz: string;   
-    janr_en: string;
+    genre_uz: string;   
+    genre_en: string;
     book_name_uz: string;
     book_name_en: string;
     id: string;
